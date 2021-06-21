@@ -1,19 +1,9 @@
 const express = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
+const mongoose = require('mongoose');
 
-const typeDefs = gql`
-    type Query {
-        hello: String
-    }
-`;
-
-const resolvers = {
-    Query: {
-        hello: () => {
-            return 'Hello world';
-        }
-    }
-}
+const resolvers = require('./resolvers');
+const typeDefs = require('./typeDefs');
 
 async function startServer() {
     const app = express();
@@ -29,6 +19,13 @@ async function startServer() {
     app.use((req, res) => {
         res.send('Hello from express apollo server');
     })
+
+    await mongoose.connect('mongodb://localhost:27017/post_db', {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useFindAndModify: false
+    })
+    console.log('MongoDB connected...');
 
     app.listen(4000, () => 'Server is running on port 4000');
 }
