@@ -1,0 +1,26 @@
+{
+  "name": "apollo-gql-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pradeep-giri/apollo-gql-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pradeep-giri/apollo-gql-express/issues"
+  },
+  "homepage": "https://github.com/pradeep-giri/apollo-gql-express#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.25.1",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "mongoose": "^5.12.14"
+  }
+}
